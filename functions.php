@@ -1,0 +1,11 @@
+<?php
+	function addCustomFiles(){
+		// Styles
+		wp_enqueue_style('bootstrapcss', get_template_directory_uri().'/assets/css/bootstrap.min.css', array(), '4.1.3', 'all');
+
+		// Scripts
+		wp_enqueue_script('jquery');
+		wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/assets/js/bootstrap.min.js', array(), '4.1.3', true);
+	}
+
+	add_action('wp_enqueue_scripts', 'addCustomFiles');
