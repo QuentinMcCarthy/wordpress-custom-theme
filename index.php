@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
 
-		<title>WP_POST</title>
+		<title><?php wp_title(); ?></title>
 
 		<?php wp_head(); ?>
 	</head>
@@ -15,6 +15,7 @@
 						<div class="col">
 							<h3><?php the_title(); ?></h3>
 							<div><?php the_content(); ?></div>
+							<?php the_post_thumbnail('thumbnail', ['class'=>'img-fluid']); ?>
 						</div>
 					</div>
 				<?php endwhile; ?>
