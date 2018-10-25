@@ -12,10 +12,19 @@
 			<?php if(have_posts()): ?>
 				<?php while(have_posts()): the_post(); ?>
 					<div class="row">
-						<div class="col">
+						<?php if(has_post_thumbnail()): ?>
+							<?php $colClass = 'col-md-8' ?>
+							
+							<div class="col-md-4">
+								<?php the_post_thumbnail('medium', ['class'=>'img-fluid']); ?>
+							</div>
+						<?php else: ?>
+							<?php $colClass = 'col' ?>
+						<?php endif; ?>
+
+						<div class="<?= $colClass ?>">
 							<h3><?php the_title(); ?></h3>
 							<div><?php the_content(); ?></div>
-							<?php the_post_thumbnail('thumbnail', ['class'=>'img-fluid']); ?>
 						</div>
 					</div>
 				<?php endwhile; ?>

@@ -1,4 +1,5 @@
 <?php
+	// Stylesheets and scripts
 	function addCustomFiles(){
 		$cssdir = get_template_directory_uri().'/assets/css/';
 		$jsdir = get_template_directory_uri().'/assets/js/';
@@ -15,4 +16,8 @@
 
 	add_action('wp_enqueue_scripts', 'addCustomFiles');
 
+	// Theme settings
 	add_theme_support('post-thumbnails');
+
+	// Image sizes
+	add_image_size('icon', 50, 50, true);
