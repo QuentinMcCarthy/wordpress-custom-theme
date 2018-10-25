@@ -2,5 +2,5 @@
 $ = jQuery
 
 $(document).ready(function(){
-	alert("JS: Ready");
+	// alert("JS: Ready");
 });
