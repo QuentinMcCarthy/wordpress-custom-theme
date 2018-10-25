@@ -31,7 +31,8 @@
 							<?php endif; ?>
 
 							<div class="<?= $colClass ?>">
-								<div class="card-text"><?php the_content(); ?></div>
+								<div class="card-text"><?php the_excerpt(); ?></div>
+								<a class="btn btn-primary" href="<?= esc_url(get_permalink()); ?>">Read more...</a>
 							</div>
 						</div>
 					</div>
