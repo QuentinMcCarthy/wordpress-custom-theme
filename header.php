@@ -15,7 +15,7 @@
 					// 	'theme_location'=>'defaultnav',
 					// 	'container_class'=>'navbar-collapse',
 					// 	'menu_class'=>'navbar-nav mr-auto',
-					// 	'menu_id'=>'defaultnav'
+					// 	'menu_id'=>'default-nav-menu'
 					// ));
 				?>
 
@@ -31,7 +31,7 @@
 				wp_nav_menu(array(
 					'theme_location'=>'defaultnav',
 					'menu_class'=>'nav nav-pills justify-content-center',
-					'menu_id'=>'defaultnav'
+					'menu_id'=>'default-nav-menu'
 				));
 			}
 		?>
