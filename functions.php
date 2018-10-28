@@ -14,7 +14,15 @@
 		wp_enqueue_script('master', $jsdir.'script.js', array('jquery'), '0.0.1', true);
 	}
 
+	// Theme menus
+	function registerMenus(){
+		// Default navigation menu
+		register_nav_menu('defaultnav', __('Default Navigation'));
+	}
+
+	// Actions for above functions in same order
 	add_action('wp_enqueue_scripts', 'addCustomFiles');
+	add_action('init', 'registerMenus');
 
 	// Theme settings
 	add_theme_support('post-thumbnails');
