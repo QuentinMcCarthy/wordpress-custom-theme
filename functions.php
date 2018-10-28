@@ -1,4 +1,7 @@
 <?php
+	// Custom Navigation Walker
+	require_once get_template_directory().'/class-wp-bootstrap-navwalker.php';
+
 	// Stylesheets and scripts
 	function add_custom_files() {
 		$css_directory = get_template_directory_uri().'/assets/css/';

@@ -1,6 +1,5 @@
 /* Table of Contents:
  * 1.0: Default styles
- * 2.0: Theme menu styles
 */
 
 /* 1.0 Defaults */
@@ -10,14 +9,4 @@
 body {
 	background-color: black;
 	color: white;
-}
-
-
-/* 2.0 Menus */
-
-/* The default navigation menu at the top of the header page. This override is
- * necessary for the bootstrap layout */
-#default-nav-menu a {
-	display: block;
-	padding: 0.5rem 1rem;
 }
