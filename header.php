@@ -9,9 +9,11 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<?php
-			wp_nav_menu(array(
-				'theme_location'=>'defaultnav',
-				'menu_class'=>'nav nav-pills justify-content-center',
-				'menu_id'=>'defaultnav'
-			));
+			if(has_nav_menu('defaultnav')){
+				wp_nav_menu(array(
+					'theme_location'=>'defaultnav',
+					'menu_class'=>'nav nav-pills justify-content-center',
+					'menu_id'=>'defaultnav'
+				));
+			}
 		?>
