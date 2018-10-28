@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
-		<meta charset="<?php bloginfo('charset'); ?>">
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
 
 		<title></title>
 
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<?php // if(has_nav_menu('defaultnav')): ?>
+		<?php // if ( has_nav_menu( 'defaultnav' ) ): ?>
 			<!-- <nav class="navbar navbar-dark bg-dark"> -->
 				<?php
 					// wp_nav_menu(array(
-					// 	'theme_location'=>'defaultnav',
-					// 	'container_class'=>'navbar-collapse',
-					// 	'menu_class'=>'navbar-nav mr-auto',
-					// 	'menu_id'=>'default-nav-menu'
+					// 	'theme_location' => 'defaultnav',
+					// 	'container_class' => 'navbar-collapse',
+					// 	'menu_class' => 'navbar-nav mr-auto',
+					// 	'menu_id' => 'default-nav-menu',
 					// ));
 				?>
 
@@ -27,11 +27,11 @@
 		<?php // endif; ?>
 
 		<?php
-			if(has_nav_menu('defaultnav')){
+			if ( has_nav_menu('defaultnav') ) {
 				wp_nav_menu(array(
-					'theme_location'=>'defaultnav',
-					'menu_class'=>'nav nav-pills justify-content-center',
-					'menu_id'=>'default-nav-menu'
+					'theme_location' => 'defaultnav',
+					'menu_class' => 'nav nav-pills justify-content-center',
+					'menu_id' => 'default-nav-menu',
 				));
 			}
 		?>
