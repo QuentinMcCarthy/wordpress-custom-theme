@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-	<head>
-		<meta charset="<?php bloginfo('charset'); ?>">
-
-		<title></title>
-
-		<?php wp_head(); ?>
-	</head>
-	<body <?php body_class(); ?>>
+<?php get_header('front'); ?>
 		<div class="container mt-2">
 			<div class="row">
 				<div class="col">
