@@ -8,4 +8,10 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<?php wp_nav_menu(array('theme_location'=>'defaultnav')); ?>
+		<?php
+			wp_nav_menu(array(
+				'theme_location'=>'defaultnav',
+				'menu_class'=>'nav nav-pills justify-content-center',
+				'menu_id'=>'defaultnav'
+			));
+		?>

@@ -2,3 +2,8 @@ body {
 	background-color: black;
 	color: white;
 }
+
+#defaultnav > li > a {
+	display: block;
+	padding: .5rem 1rem;
+}
