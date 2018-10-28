@@ -15,14 +15,14 @@
 	}
 
 	// Theme menus
-	function registerMenus(){
+	function addCustomMenus(){
 		// Default navigation menu
 		register_nav_menu('defaultnav', __('Default Navigation'));
 	}
 
 	// Actions for above functions in same order
 	add_action('wp_enqueue_scripts', 'addCustomFiles');
-	add_action('init', 'registerMenus');
+	add_action('init', 'addCustomMenus');
 
 	// Theme settings
 	add_theme_support('post-thumbnails');
