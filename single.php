@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 	<div class="container mt-2">
-		<?php if (have_posts()): ?>
+		<?php if ( have_posts() ): ?>
 			<?php while ( have_posts() ): the_post(); ?>
 				<div class="card text-light bg-secondary">
-					<?php if (has_post_thumbnail()): ?>
+					<?php if ( has_post_thumbnail() ): ?>
 						<?php the_post_thumbnail( 'large', ['class' => 'card-img-top'] ); ?>
 
 						<div class="card-body">

@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 	<div class="container mt-2">
-		<?php if (have_posts()): ?>
+		<?php if ( have_posts() ): ?>
 			<?php while ( have_posts() ): the_post(); ?>
 				<div class="card text-light bg-secondary mt-2">
 					<div class="card-header"><?php the_title(); ?></div>
 					<div class="card-body row">
-						<?php if (has_post_thumbnail()): ?>
+						<?php if ( has_post_thumbnail() ): ?>
 							<?php $colClass = 'col-md-8' ?>
 
 							<div class="col-md-4">
