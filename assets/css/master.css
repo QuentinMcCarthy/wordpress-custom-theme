@@ -1,5 +1,6 @@
 /* Table of Contents:
  * 1.0: Default styles
+ * 2.0: Template styles
 */
 
 /* 1.0 Defaults */
@@ -9,4 +10,12 @@
 body {
 	background-color: black;
 	color: white;
+}
+
+/* 2.0 Template styles */
+
+/* These styles are specific to template pages */
+
+.two-columns {
+	column-count: 2;
 }
