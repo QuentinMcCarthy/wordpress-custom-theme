@@ -39,6 +39,41 @@
 
 	// 2.3 Custom Post Types
 	function add_staff_post_type(){
+		$labels = array(
+			'name'               => _x( 'Staff', 'Post type name', '18wdwu02theme' ),
+			'singular_name'      => _x( 'Staff', 'Post type singular name', '18wdwu02theme' ),
+			'add_new_item'       => _x( 'Add New Staff Member', 'Adding new staff member', '18wdwu02theme' ),
+			'edit_item'          => _x( 'Edit Staff Member', 'Editing staff member', '18wdwu02theme' ),
+			'new_item'           => _x( 'New Staff Member', 'New staff member', '18wdwu02theme' ),
+			'view_item'          => _x( 'View Staff Member', 'View staff member', '18wdwu02theme' ),
+			'view_items'         => _x( 'View Staff Members', 'View staff members', '18wdwu02theme' ),
+			'search_items'       => _x( 'Search Staff Members', 'Search staff members', '18wdwu02theme' ),
+			'not_found'          => _x( 'No Staff Members Found', 'No staff members found', '18wdwu02theme' ),
+			'not_found_in_trash' => _x( 'No Staff Members found in Trash', 'No Staff Members found in Trash', '18wdwu02theme' ),
+			'all_items'          => _x( 'All Staff Members', 'All staff members', '18wdwu02theme' ),
+		);
+
+		$supports = array(
+			'title',
+			'thumbnail',
+		);
+
+		$args = array(
+			'labels'              => $labels,
+			'description'         => 'A post type for the staff members in the company',
+			'public'              => true,
+			'hierarchical'        => true,
+			'exclude_from_search' => false,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => false,
+			'menu_position'       => 20,
+			'menu_icon'           => 'dashicons-groups',
+			'supports'            => $supports,
+			'query_var'           => true,
+		);
+
+		register_post_type( 'staff', $args);
 	}
 
 
