@@ -30,5 +30,14 @@
 	// Theme settings
 	add_theme_support( 'post-thumbnails' );
 
+	$post_formats = array(
+		'aside',
+		'gallery',
+		'image',
+		'video',
+	);
+
+	add_theme_support( 'post-formats', $post_formats );
+
 	// Image sizes
 	add_image_size( 'icon', 50, 50, true );
