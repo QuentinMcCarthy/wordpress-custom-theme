@@ -12,18 +12,19 @@ body {
 	color: #fff;
 }
 
-#header-image {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	height: 40px;
-	width: 100px;
-}
-
 /* 2.0 Template styles */
 
 /* These styles are specific to template pages */
 
 .two-columns {
 	column-count: 2;
+}
+
+#banner{
+	height: 400px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: red;
 }
