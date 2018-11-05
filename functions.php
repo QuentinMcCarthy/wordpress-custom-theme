@@ -159,7 +159,7 @@
 			'flex-width'             => false,
 			'uploads'                => true,
 			'random-default'         => false,
-			'header-text'            => true,
+			'header-text'            => false,
 			'default-text-color'     => '',
 		);
 
