@@ -13,7 +13,7 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#default-nav-container" aria-controls="default-nav-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand" href="#">Navbar</a>
+				<a id="header-image" class="navbar-brand" href="#" style="background-image: url('<?php header_image(); ?>');"></a>
 
 				<?php
 					wp_nav_menu(array(

@@ -8,8 +8,16 @@
 /* Default styles for the page; generally element selectors w/o classes/ids */
 
 body {
-	background-color: black;
-	color: white;
+	background-color: #000;
+	color: #fff;
+}
+
+#header-image {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 40px;
+	width: 100px;
 }
 
 /* 2.0 Template styles */

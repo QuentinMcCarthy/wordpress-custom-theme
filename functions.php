@@ -132,8 +132,33 @@
 	add_action( 'init', 'add_staff_post_type' );
 	add_action( 'init', 'add_carousel_post_type' );
 
+	// 6.0:- Custom Header
+	$banner = array(
+		'url'            => get_template_directory_uri().'/assets/images/defaultheader.png',
+		'thumnbnail_url' => get_template_directory_uri().'/assets/images/defaultheader.png',
+		'description'    => 'Nav image',
+	);
+
+	register_default_headers(array(
+		'banner' => $banner
+	));
+
+	add_action( 'init', function(){
+		$defaults = array(
+			'default-image'          => get_template_directory_uri().'/assets/images/defaultheader.png',
+			'width'                  => 100,
+			'height'                 => 40,
+			'flex-height'            => false,
+			'flex-width'             => false,
+			'uploads'                => true,
+			'random-default'         => false,
+			'header-text'            => true,
+			'default-text-color'     => '',
+		);
 
 	// 3.0:- Theme Support
+		add_theme_support( 'custom-header', $defaults );
+	});
 	add_theme_support( 'post-thumbnails' );
 
 	$post_formats = array(
