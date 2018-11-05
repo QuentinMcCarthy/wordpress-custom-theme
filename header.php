@@ -35,4 +35,4 @@
 			$header_image = get_header_image();
 		} ?>
 
-		<div id="banner" style="background-image: url('<?php echo $header_image; ?>');"></div>
+		<div id="banner" class="bg-dark" style="background-image: url('<?php echo $header_image; ?>');"></div>
