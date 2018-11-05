@@ -29,4 +29,10 @@
 			</nav>
 		<?php endif; ?>
 
-		<div id="banner" style="background-image: url('<?php header_image(); ?>');"></div>
+		<?php if ( !get_header_image() ) {
+			$header_image = get_template_directory_uri().'/assets/images/defaultheader.png';
+		} else {
+			$header_image = get_header_image();
+		} ?>
+
+		<div id="banner" style="background-image: url('<?php echo $header_image; ?>');"></div>
