@@ -12,6 +12,11 @@ body {
 	color: #fff;
 }
 
+#front-page-carousel {
+	height: 610px;
+	overflow: hidden;
+}
+
 /* 2.0 Template styles */
 
 /* These styles are specific to template pages */
