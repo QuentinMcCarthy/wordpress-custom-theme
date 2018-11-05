@@ -58,7 +58,7 @@
 	// 5.0:- Custom Post Types
 
 	// 5.1:- Staff
-	function add_staff_post_type() {
+	add_action( 'init', function() {
 		$labels = array(
 			'name'               => _x( 'Staff', 'Post type name', '18wdwu02theme' ),
 			'singular_name'      => _x( 'Staff', 'Post type singular name', '18wdwu02theme' ),
@@ -94,10 +94,10 @@
 		);
 
 		register_post_type( 'staff', $args);
-	}
+	});
 
 	// 5.2:- Carousel
-	function add_carousel_post_type() {
+	add_action( 'init', function() {
 		$labels = array(
 			'name'               => _x( 'Carousels', 'Post type name', '18wdwu02theme' ),
 			'singular_name'      => _x( 'Carousel', 'Post type singular name', '18wdwu02theme' ),
@@ -134,10 +134,7 @@
 		);
 
 		register_post_type( 'carousel', $args);
-	}
-
-	add_action( 'init', 'add_staff_post_type' );
-	add_action( 'init', 'add_carousel_post_type' );
+	});
 
 	// 6.0:- Custom Header
 	$banner = array(
