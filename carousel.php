@@ -2,22 +2,20 @@
 	/* Template Name: Carousel */
 ?>
 
-<div id="front-page-carousel" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators">
-		<?php
-			$args = array(
-				'post_type' => 'carousel',
-				'order'     => 'ASC',
-				'orderby'   => 'date',
-			);
+<?php
+	$args = array(
+		'post_type' => 'carousel',
+		'order'     => 'ASC',
+		'orderby'   => 'date',
+	);
 
-			$all_carousel_images = new WP_Query($args);
+	$all_carousel_images = new WP_Query($args);
+?>
 
-			$iterator = 0;
-
-		?>
-
-		<?php if ( $all_carousel_images->have_posts() ): ?>
+<?php if ( $all_carousel_images->have_posts() ): ?>
+	<div id="front-page-carousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<?php $iterator = 0; ?>
 			<?php while ( $all_carousel_images->have_posts() ): $all_carousel_images->the_post(); ?>
 				<?php
 					if ( $iterator == 0 ) {
@@ -33,24 +31,10 @@
 					<?php $iterator++; ?>
 				<?php endif; ?>
 			<?php endwhile; ?>
-		<?php endif; ?>
-	</ol>
+		</ol>
 
-	<div class="carousel-inner">
-		<?php
-			$args = array(
-				'post_type' => 'carousel',
-				'order'     => 'ASC',
-				'orderby'   => 'date',
-			);
-
-			$all_carousel_images = new WP_Query($args);
-
-			$iterator = 0;
-
-		?>
-
-		<?php if ( $all_carousel_images->have_posts() ): ?>
+		<div class="carousel-inner">
+			<?php $iterator = 0; ?>
 			<?php while ( $all_carousel_images->have_posts() ): $all_carousel_images->the_post(); ?>
 				<?php
 					if ( $iterator == 0 ) {
@@ -70,14 +54,14 @@
 
 				<?php $iterator++; ?>
 			<?php endwhile; ?>
-		<?php endif; ?>
+		</div>
+		<a class="carousel-control-prev" href="#front-page-carousel" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#front-page-carousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
 	</div>
-	<a class="carousel-control-prev" href="#front-page-carousel" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a>
-	<a class="carousel-control-next" href="#front-page-carousel" role="button" data-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a>
-</div>
+<?php endif; ?>
