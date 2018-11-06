@@ -110,7 +110,7 @@
 			'show_ui'             => true,
 			'show_in_menu'        => true,
 			'show_in_nav_menus'   => false,
-			'menu_position'       => 25,
+			'menu_position'       => 26,
 			'menu_icon'           => 'dashicons-images-alt2',
 			'supports'            => $carousel_images_supports,
 			'query_var'           => true,

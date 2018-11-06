@@ -6,9 +6,13 @@
 			1.3:- Header Background Styles Control
 			1.4:- Header Text Styles Settings
 			1.5:- Header Text Styles Control
+			1.6:- Carousel Section
+			1.7:- Carousel Height Settings
+			1.8:- Carousel Height Control
 		2.0:- Customizer Styles
 			2.1:- Header Background Styles
 			2.2:- Header Text Styles
+			2.3:- Carousel Height Styles
 	*/
 
 
@@ -60,6 +64,42 @@
 		$header_text_colour_control = new WP_Customize_Color_Control( $wp_customize, 'header_text_colour_control', $header_text_colour_control_args );
 
 		$wp_customize->add_control( $header_text_colour_control );
+
+
+		// 1.5:- Carousel Section
+		$carousel_styles_section_args = array(
+			'title'    => __( 'Carousel Options', '18wdwu02theme' ),
+			'priority' => 21,
+		);
+
+		$wp_customize->add_section( 'custom_theme_carousel_info', $carousel_styles_section_args );
+
+		// 1.6:- Carousel Height Settings
+		$carousel_height_setting_args = array(
+			'default'   => '50',
+			'transport' => 'refresh',
+		);
+
+		$wp_customize->add_setting( 'carousel_height_setting', $carousel_height_setting_args );
+
+		// 1.7:- Carousel Height Control
+		$input_attrs = array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		);
+
+		$carousel_height_control_args = array(
+			'label'       => __( 'Carousel Height', '18wdwu02theme' ),
+			'section'     => 'custom_theme_carousel_info',
+			'settings'    => 'carousel_height_setting',
+			'type'        => 'number',
+			'input_attrs' => $input_attrs,
+		);
+
+		$carousel_height_control = new WP_Customize_Control( $wp_customize, 'carousel_height_control', $carousel_height_control_args );
+
+		$wp_customize->add_control( $carousel_height_control );
 	}
 
 	add_action( 'customize_register', 'custom_theme_customizer' );
@@ -86,6 +126,11 @@
 			.navbar-dark .navbar-nav .show>.nav-link {
 				color: <?php echo get_theme_mod( 'header_text_colour_setting', '#ffffff'); ?> !important;
 				opacity: 1;
+			}
+
+			/* Carousel Height Styles */
+			.carousel-image {
+				padding-top: <?php echo get_theme_mod( 'carousel_height_setting', '50' ).'%'; ?> !important;
 			}
 		</style>
 		<?php
