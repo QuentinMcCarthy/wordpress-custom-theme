@@ -1,6 +1,6 @@
 <?php
 	/* Table of Contents:
-		1.0:- Plugins
+		1.0:- Includes
 		2.0:- Stylesheets and Scripts
 		3.0:- Init
 			3.1:- Menus
@@ -15,8 +15,10 @@
 	*/
 
 
-	// 1.0:- Plugins
-	require_once get_template_directory().'/class-wp-bootstrap-navwalker.php';
+	// 1.0:- Includes
+	require_once get_template_directory().'/includes/class-wp-bootstrap-navwalker.php';
+
+	require get_parent_theme_file_path( './includes/custom_customiser.php' );
 
 
 	// 2.0:- Stylesheets and Scripts
