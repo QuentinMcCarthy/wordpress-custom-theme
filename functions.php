@@ -81,6 +81,7 @@
 
 		register_post_type( 'staff', $staff_args );
 
+
 		// 3.2.2:- Carousel Images
 		$carousel_images_labels = array(
 			'name'               => _x( 'Carousel Images', 'Post type name', '18wdwu02theme' ),
@@ -118,6 +119,7 @@
 
 		register_post_type( 'carousel', $carousel_images_args );
 
+
 		// 3.3:- Custom Header
 		$header_banner = array(
 			'url'           => get_template_directory_uri().'/assets/images/defaultheader.png',
@@ -143,6 +145,7 @@
 
 		add_theme_support( 'custom-header', $defaults );
 
+
 		// 3.4:- Custom Background
 		$background_args = array(
 			'default-color'          => '000000',
@@ -156,8 +159,10 @@
 
 		add_theme_support( 'custom-background', $background_args );
 
+
 		// 3.5:- Post Thumbnails
 		add_theme_support( 'post-thumbnails' );
+
 
 		// 3.6:- Post Formats
 		$post_formats = array(
