@@ -13,8 +13,16 @@ body {
 }
 
 #front-page-carousel {
-	height: 610px;
+	height: fit-content;
 	overflow: hidden;
+}
+
+.carousel-image {
+	width: 100%;
+	padding-top: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
 
 /* 2.0 Template styles */
