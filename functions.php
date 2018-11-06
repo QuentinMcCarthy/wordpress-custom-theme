@@ -2,15 +2,16 @@
 	/* Table of Contents:
 		1.0:- Plugins
 		2.0:- Stylesheets and Scripts
-		3.0:- Menus
+		3.0:- Init
+			3.1:- Menus
+			3.2:- Custom Post Types
+				3.2.1:- Staff
+				3.2.2:- Carousel Images
+			3.3:- Custom Header
+			3.4:- Custom Background
+			3.5:- Post Thumbnails
+			3.6:- Post Formats
 		4.0:- Sidebars
-		5.0:- Custom Post Types
-			5.1:- Staff
-		6.0:- Custom Header
-		7.0:- Custom Background
-		8.0:- Post Thumbnails
-		9.0:- Post Formats
-		10.0:- Other
 	*/
 
 
@@ -34,11 +35,140 @@
 	});
 
 
-	// 3.0:- Menus
-	add_action( 'init', function() {
-		// Default navigation menu
+	// 3.0:- Init
+	function custom_theme_init() {
+		// 3.1:- Menus
 		register_nav_menu( 'defaultnav', __( 'Default Navigation' ) );
-	});
+
+		// 3.2:- Custom Post Types
+
+		// 3.2.1:- Staff
+		$staff_labels = array(
+			'name'               => _x( 'Staff', 'Post type name', '18wdwu02theme' ),
+			'singular_name'      => _x( 'Staff', 'Post type singular name', '18wdwu02theme' ),
+			'add_new_item'       => _x( 'Add New Staff Member', 'Adding new staff member', '18wdwu02theme' ),
+			'edit_item'          => _x( 'Edit Staff Member', 'Editing staff member', '18wdwu02theme' ),
+			'new_item'           => _x( 'New Staff Member', 'New staff member', '18wdwu02theme' ),
+			'view_item'          => _x( 'View Staff Member', 'Viewing staff member', '18wdwu02theme' ),
+			'view_items'         => _x( 'View Staff Members', 'Viewing staff members', '18wdwu02theme' ),
+			'search_items'       => _x( 'Search Staff Members', 'Searching staff members', '18wdwu02theme' ),
+			'not_found'          => _x( 'No Staff Members Found', 'No staff members found', '18wdwu02theme' ),
+			'not_found_in_trash' => _x( 'No Staff Members found in Trash', 'No Staff Members found in Trash', '18wdwu02theme' ),
+			'all_items'          => _x( 'All Staff Members', 'All staff members', '18wdwu02theme' ),
+		);
+
+		$staff_supports = array(
+			'title',
+			'thumbnail',
+		);
+
+		$staff_args = array(
+			'labels'              => $staff_labels,
+			'description'         => 'A post type for the staff members in the company',
+			'public'              => true,
+			'hierarchical'        => true,
+			'exclude_from_search' => false,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => false,
+			'menu_position'       => 25,
+			'menu_icon'           => 'dashicons-groups',
+			'supports'            => $staff_supports,
+			'query_var'           => true,
+		);
+
+		register_post_type( 'staff', $staff_args );
+
+		// 3.2.2:- Carousel Images
+		$carousel_images_labels = array(
+			'name'               => _x( 'Carousel Images', 'Post type name', '18wdwu02theme' ),
+			'singular_name'      => _x( 'Carousel Image', 'Post type singular name', '18wdwu02theme' ),
+			'add_new_item'       => _x( 'Add New Carousel Image', 'Adding new carousel image', '18wdwu02theme' ),
+			'edit_item'          => _x( 'Edit Carousel Image', 'Editing carousel image', '18wdwu02theme' ),
+			'new_item'           => _x( 'New Carousel Image', 'New carousel image', '18wdwu02theme' ),
+			'view_item'          => _x( 'View Carousel Image', 'Viewing carousel image', '18wdwu02theme' ),
+			'view_items'         => _x( 'View Carousel Images', 'Viewing carousel images', '18wdwu02theme' ),
+			'search_items'       => _x( 'Search Carousel Images', 'Searching carousel images', '18wdwu02theme' ),
+			'not_found'          => _x( 'No Carousel Images found', 'No carousel images found', '18wdwu02theme' ),
+			'not_found_in_trash' => _x( 'No Carousel Images found in Trash', 'No Carousel Images found in Trash', '18wdwu02theme' ),
+			'all_items'          => _x( 'All Carousel Images', 'All carousel images', '18wdwu02theme' ),
+		);
+
+		$carousel_images_supports = array(
+			'title',
+			'thumbnail',
+		);
+
+		$carousel_images_args = array(
+			'labels'              => $carousel_images_labels,
+			'description'         => 'Carousel images for the front-page carousel',
+			'public'              => true,
+			'hierarchical'        => true,
+			'exclude_from_search' => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => false,
+			'menu_position'       => 25,
+			'menu_icon'           => 'dashicons-images-alt2',
+			'supports'            => $carousel_images_supports,
+			'query_var'           => true,
+		);
+
+		register_post_type( 'carousel', $carousel_images_args );
+
+		// 3.3:- Custom Header
+		$header_banner = array(
+			'url'           => get_template_directory_uri().'/assets/images/defaultheader.png',
+			'thumbnail_url' => get_template_directory_uri().'/assets/images/defaultheader.png',
+			'description'   => 'Nav image',
+		);
+
+		register_default_headers(array(
+			'banner' => $header_banner,
+		));
+
+		$header_args = array(
+			'default-image'          => get_template_directory_uri().'/assets/images/defaultheader.png',
+			'width'                  => 1280,
+			'height'                 => 720,
+			'flex-height'            => false,
+			'flex-width'             => false,
+			'uploads'                => true,
+			'random-default'         => false,
+			'header-text'            => false,
+			'default-text-color'     => '',
+		);
+
+		add_theme_support( 'custom-header', $defaults );
+
+		// 3.4:- Custom Background
+		$background_args = array(
+			'default-color'          => '000000',
+			'default-image'          => '',
+			'default-repeat'         => 'repeat',
+			'default-position-x'     => 'left',
+	        'default-position-y'     => 'top',
+	        'default-size'           => 'auto',
+			'default-attachment'     => 'fixed',
+		);
+
+		add_theme_support( 'custom-background', $background_args );
+
+		// 3.5:- Post Thumbnails
+		add_theme_support( 'post-thumbnails' );
+
+		// 3.6:- Post Formats
+		$post_formats = array(
+			'aside',
+			'gallery',
+			'image',
+			'video',
+		);
+
+		add_theme_support( 'post-formats', $post_formats );
+	}
+
+	add_action( 'init', 'custom_theme_init' );
 
 
 	// 4.0:- Sidebars
@@ -53,104 +183,3 @@
 			'after_title'   => '</h3>',
 		));
 	});
-
-	// 5.0:- Custom Post Types
-
-	// 5.1:- Staff
-	add_action( 'init', function() {
-		$labels = array(
-			'name'               => _x( 'Staff', 'Post type name', '18wdwu02theme' ),
-			'singular_name'      => _x( 'Staff', 'Post type singular name', '18wdwu02theme' ),
-			'add_new_item'       => _x( 'Add New Staff Member', 'Adding new staff member', '18wdwu02theme' ),
-			'edit_item'          => _x( 'Edit Staff Member', 'Editing staff member', '18wdwu02theme' ),
-			'new_item'           => _x( 'New Staff Member', 'New staff member', '18wdwu02theme' ),
-			'view_item'          => _x( 'View Staff Member', 'Viewing staff member', '18wdwu02theme' ),
-			'view_items'         => _x( 'View Staff Members', 'Viewing staff members', '18wdwu02theme' ),
-			'search_items'       => _x( 'Search Staff Members', 'Searching staff members', '18wdwu02theme' ),
-			'not_found'          => _x( 'No Staff Members Found', 'No staff members found', '18wdwu02theme' ),
-			'not_found_in_trash' => _x( 'No Staff Members found in Trash', 'No Staff Members found in Trash', '18wdwu02theme' ),
-			'all_items'          => _x( 'All Staff Members', 'All staff members', '18wdwu02theme' ),
-		);
-
-		$supports = array(
-			'title',
-			'thumbnail',
-		);
-
-		$args = array(
-			'labels'              => $labels,
-			'description'         => 'A post type for the staff members in the company',
-			'public'              => true,
-			'hierarchical'        => true,
-			'exclude_from_search' => false,
-			'show_ui'             => true,
-			'show_in_menu'        => true,
-			'show_in_nav_menus'   => false,
-			'menu_position'       => 20,
-			'menu_icon'           => 'dashicons-groups',
-			'supports'            => $supports,
-			'query_var'           => true,
-		);
-
-		register_post_type( 'staff', $args);
-	});
-
-	// 6.0:- Custom Header
-	$banner = array(
-		'url'           => get_template_directory_uri().'/assets/images/defaultheader.png',
-		'thumbnail_url' => get_template_directory_uri().'/assets/images/defaultheader.png',
-		'description'   => 'Nav image',
-	);
-
-	register_default_headers(array(
-		'banner' => $banner
-	));
-
-	add_action( 'init', function(){
-		$defaults = array(
-			'default-image'          => get_template_directory_uri().'/assets/images/defaultheader.png',
-			'width'                  => 1280,
-			'height'                 => 720,
-			'flex-height'            => false,
-			'flex-width'             => false,
-			'uploads'                => true,
-			'random-default'         => false,
-			'header-text'            => false,
-			'default-text-color'     => '',
-		);
-
-		add_theme_support( 'custom-header', $defaults );
-	});
-
-
-	// 7.0:- Custom Background
-	$custom_background_defaults = array(
-		'default-color'          => '000000',
-		'default-image'          => '',
-		'default-repeat'         => 'repeat',
-		'default-position-x'     => 'left',
-        'default-position-y'     => 'top',
-        'default-size'           => 'auto',
-		'default-attachment'     => 'fixed',
-	);
-
-	add_theme_support( 'custom-background', $custom_background_defaults );
-
-
-	// 8.0:- Post Thumbnails
-	add_theme_support( 'post-thumbnails' );
-
-
-	// 9.0 Post Formats
-	$post_formats = array(
-		'aside',
-		'gallery',
-		'image',
-		'video',
-	);
-
-	add_theme_support( 'post-formats', $post_formats );
-
-
-	// 10.0:- Other
-	add_image_size( 'icon', 50, 50, true );
