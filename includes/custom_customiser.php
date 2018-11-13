@@ -108,6 +108,20 @@
 
 		$wp_customize->add_panel( 'featured_posts_panel', $featured_posts_panel_args );
 
+		$args = array(
+			'numberposts' => -1,
+		);
+
+		$all_posts = get_posts( $args );
+
+		$query_posts = array(
+			'' => '',
+		);
+
+		foreach($all_posts as $single_post){
+			$query_posts[$single_post->ID] = $single_post->post_title;
+		}
+
 		for ($i=1; $i <= 2; $i++) {
 			$custom_theme_featured_post_args = array(
 				'title'    => __( 'Featured Post '.$i, '18wdwu02theme' ),
@@ -124,18 +138,12 @@
 
 			$wp_customize->add_setting( 'custom_theme_featured_post_'.$i.'_setting', $custom_theme_featured_post_setting );
 
-			$post_select_choices = array(
-				'value1' => 'Value 1',
-				'value2' => 'Value 2',
-				'value3' => 'Value 3',
-			);
-
 			$custom_theme_featured_post_args = array(
 				'label'       => __( 'Featured Post', '18wdwu02theme' ),
 				'section'     => 'custom_theme_featured_post_'.$i,
 				'settings'    => 'custom_theme_featured_post_'.$i.'_setting',
 				'type'        => 'select',
-				'choices'     => $post_select_choices
+				'choices'     => $query_posts
 			);
 
 			$custom_theme_featured_post_control = new WP_Customize_Control( $wp_customize, 'custom_theme_featured_post_'.$i.'_control', $custom_theme_featured_post_args );
