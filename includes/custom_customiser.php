@@ -6,6 +6,7 @@
 			1.3:- Header Text
 			1.4:- Carousel Section
 			1.5:- Carousel Height
+			1.6:- Featured Posts
 		2.0:- Customizer Styles
 			2.1:- Header Background Styles
 			2.2:- Header Text Styles
@@ -96,6 +97,51 @@
 		$carousel_height_control = new WP_Customize_Control( $wp_customize, 'carousel_height_control', $carousel_height_control_args );
 
 		$wp_customize->add_control( $carousel_height_control );
+
+
+		// 1.6:- Featured Posts
+		$featured_posts_panel_args = array(
+			'title'       => __( 'Featured Posts', '18wdwu02theme' ),
+			'priority'    => 30,
+			'description' => 'This panel will hold the featured posts sections',
+		);
+
+		$wp_customize->add_panel( 'featured_posts_panel', $featured_posts_panel_args );
+
+		for ($i=1; $i <= 2; $i++) {
+			$custom_theme_featured_post_args = array(
+				'title'    => __( 'Featured Post '.$i, '18wdwu02theme' ),
+				'priority' => 21,
+				'panel'    => 'featured_posts_panel',
+			);
+
+			$wp_customize->add_section( 'custom_theme_featured_post_'.$i, $custom_theme_featured_post_args );
+
+			$custom_theme_featured_post_setting = array(
+				'default'   => '',
+				'transport' => 'refresh',
+			);
+
+			$wp_customize->add_setting( 'custom_theme_featured_post_'.$i.'_setting', $custom_theme_featured_post_setting );
+
+			$post_select_choices = array(
+				'value1' => 'Value 1',
+				'value2' => 'Value 2',
+				'value3' => 'Value 3',
+			);
+
+			$custom_theme_featured_post_args = array(
+				'label'       => __( 'Featured Post', '18wdwu02theme' ),
+				'section'     => 'custom_theme_featured_post_'.$i,
+				'settings'    => 'custom_theme_featured_post_'.$i.'_setting',
+				'type'        => 'select',
+				'choices'     => $post_select_choices
+			);
+
+			$custom_theme_featured_post_control = new WP_Customize_Control( $wp_customize, 'custom_theme_featured_post_'.$i.'_control', $custom_theme_featured_post_args );
+
+			$wp_customize->add_control( $custom_theme_featured_post_control );
+		}
 	}
 
 	add_action( 'customize_register', 'custom_theme_customizer' );
