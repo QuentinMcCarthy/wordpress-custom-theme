@@ -1,1 +1,38 @@
-<?php get_header(); ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
+
+		<title><?php wp_title( '-', true, 'right'); bloginfo( 'name' ); ?></title>
+
+		<?php wp_head(); ?>
+	</head>
+	<body <?php body_class(); ?>>
+		<?php if ( has_nav_menu( 'defaultnav' ) ): ?>
+			<nav class="navbar navbar-expand-lg navbar-dark header-bg">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#default-nav-container" aria-controls="default-nav-container" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="#">Navigation</a>
+
+				<?php
+					wp_nav_menu(array(
+						'theme_location'  => 'defaultnav',
+						'container_class' => 'collapse navbar-collapse',
+						'container_id'    => 'default-nav-container',
+						'menu_class'      => 'navbar-nav mr-auto',
+						'menu_id'         => 'default-nav-menu',
+						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+						'walker'          => new WP_Bootstrap_Navwalker(),
+					));
+				?>
+			</nav>
+		<?php endif; ?>
+
+		<?php if ( !get_header_image() ) {
+			$header_image = get_template_directory_uri().'/assets/images/defaultheader.png';
+		} else {
+			$header_image = get_header_image();
+		} ?>
+
+		<div id="banner" class="bg-dark" style="background-image: url('<?php echo $header_image; ?>');"></div>

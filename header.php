@@ -28,11 +28,3 @@
 				?>
 			</nav>
 		<?php endif; ?>
-
-		<?php if ( !get_header_image() ) {
-			$header_image = get_template_directory_uri().'/assets/images/defaultheader.png';
-		} else {
-			$header_image = get_header_image();
-		} ?>
-
-		<div id="banner" class="bg-dark" style="background-image: url('<?php echo $header_image; ?>');"></div>
