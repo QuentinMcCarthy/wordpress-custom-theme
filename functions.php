@@ -21,6 +21,8 @@
 
 	require get_parent_theme_file_path( './includes/custom_customiser.php' );
 
+	require get_parent_theme_file_path( './includes/custom_fields.php' );
+
 
 	// 2.0:- Stylesheets and Scripts
 	add_action( 'wp_enqueue_scripts', function() {
@@ -35,6 +37,10 @@
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bootstrapjs', $js_directory.'bootstrap.min.js', array(), '4.1.3', true );
 		wp_enqueue_script( 'master', $js_directory.'script.js', array( 'jquery' ), '0.0.1', true );
+	});
+
+	add_action( 'admin_enqueue_scripts', function(){
+		wp_enqueue_style( 'admin-style', get_template_directory_uri().'/assets/css/admin.css', array(), '0.0.1', 'all' );
 	});
 
 

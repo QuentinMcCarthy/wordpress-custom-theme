@@ -31,6 +31,15 @@
 										<?php the_post_thumbnail( 'medium', ['class' => 'card-img-top'] ); ?>
 									<?php endif; ?>
 									<h5 class="card-title"><?php the_title(); ?></h5>
+
+									<?php
+										$id = get_the_id();
+										$staff_role = get_post_meta( $id, 'staff_role', true );
+									?>
+
+									<?php if ( $staff_role ): ?>
+										<p><?php echo $staff_role; ?></p>
+									<?php endif; ?>
 								</div>
 							</div>
 						<?php endwhile; ?>
