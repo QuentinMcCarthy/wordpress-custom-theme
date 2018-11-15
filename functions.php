@@ -7,6 +7,7 @@
 			3.2:- Custom Post Types
 				3.2.1:- Staff
 				3.2.2:- Carousel Images
+				3.2.3:- Enquiries
 			3.3:- Custom Header
 			3.4:- Custom Background
 			3.5:- Post Thumbnails
@@ -84,9 +85,9 @@
 
 		// 3.2.2:- Carousel Images
 		$carousel_images_labels = array(
-			'name'               => _x( 'Carousel Images', 'Post type name', '18wdwu02theme' ),
+			'name'               => _x( 'Carousel', 'Post type name', '18wdwu02theme' ),
 			'singular_name'      => _x( 'Carousel Image', 'Post type singular name', '18wdwu02theme' ),
-			'add_new_item'       => _x( 'Add New Carousel Image', 'Adding new carousel image', '18wdwu02theme' ),
+			'add_new_item'       => _x( 'Add New Image', 'Adding new carousel image', '18wdwu02theme' ),
 			'edit_item'          => _x( 'Edit Carousel Image', 'Editing carousel image', '18wdwu02theme' ),
 			'new_item'           => _x( 'New Carousel Image', 'New carousel image', '18wdwu02theme' ),
 			'view_item'          => _x( 'View Carousel Image', 'Viewing carousel image', '18wdwu02theme' ),
@@ -111,13 +112,56 @@
 			'show_ui'             => true,
 			'show_in_menu'        => true,
 			'show_in_nav_menus'   => false,
-			'menu_position'       => 26,
+			'menu_position'       => 25,
 			'menu_icon'           => 'dashicons-images-alt2',
 			'supports'            => $carousel_images_supports,
 			'query_var'           => true,
 		);
 
 		register_post_type( 'carousel', $carousel_images_args );
+
+
+		//3.2.3:- Enquiries
+		$enquiries_labels = array(
+			'name'               => _x( 'Enquiries', 'Post type name', '18wdwu02theme' ),
+			'singular_name'      => _x( 'Enquiries', 'Post type singular name', '18wdwu02theme' ),
+			'add_new_item'       => _x( 'Add New Enquiry', 'Adding new enquiry', '18wdwu02theme' ),
+			'edit_item'          => _x( 'Edit Enquiry', 'Editing enquiry', '18wdwu02theme' ),
+			'new_item'           => _x( 'New Enquiry', 'New enquiry', '18wdwu02theme' ),
+			'view_item'          => _x( 'View Enquiry', 'Viewing enquiry', '18wdwu02theme' ),
+			'view_items'         => _x( 'View Enquiries', 'Viewing enquiries', '18wdwu02theme' ),
+			'search_items'       => _x( 'Search Enquiries', 'Searching enquiries', '18wdwu02theme' ),
+			'not_found'          => _x( 'No Enquiries found', 'No enquiries found', '18wdwu02theme' ),
+			'not_found_in_trash' => _x( 'No Enquiries found in Trash', 'No enquiries found in Trash', '18wdwu02theme' ),
+			'all_items'          => _x( 'All Enquiries', 'All enquiries', '18wdwu02theme' ),
+		);
+
+		$enquiries_supports = array(
+			'title',
+			'editor',
+		);
+
+		$enquiries_capabilities = array(
+			'create_posts'    => 'do_not_allow',
+		);
+
+		$enquiries_args = array(
+			'labels'              => $enquiries_labels,
+			'description'         => 'Enquiries',
+			'public'              => false,
+			'hierarchical'        => true,
+			'exclude_from_search' => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => false,
+			'menu_position'       => 25,
+			'menu_icon'           => 'dashicons-megaphone',
+			'supports'            => $enquiries_supports,
+			'query_var'           => true,
+			'capabilities'        => $enquiries_capabilities,
+		);
+
+		register_post_type( 'enquiries', $enquiries_args );
 
 
 		// 3.3:- Custom Header
