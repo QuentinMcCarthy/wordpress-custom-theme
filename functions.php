@@ -164,7 +164,7 @@
 			'menu_icon'           => 'dashicons-megaphone',
 			'supports'            => $enquiries_supports,
 			'query_var'           => true,
-			'capabilities'        => $enquiries_capabilities,
+			// 'capabilities'        => $enquiries_capabilities,
 		);
 
 		register_post_type( 'enquiries', $enquiries_args );

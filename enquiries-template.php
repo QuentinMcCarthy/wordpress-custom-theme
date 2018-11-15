@@ -4,8 +4,6 @@
 
 <?php
 	if ( $_POST ) {
-		var_dump( $_POST );
-
 		$errors = array();
 
 		if ( !wp_verify_nonce( $_POST['_wpnonce'], 'wp_enquiry_form' ) ) {
@@ -59,7 +57,7 @@
 
 							<div class="form-group">
 								<label for="enquiries-message">Message</label>
-								<?php wp_editor( $content, array( 'textarea_rows' => '10' ) ); ?>
+								<?php wp_editor( $content, 'enquiries-message', array( 'textarea_rows' => '10' ) ); ?>
 							</div>
 
 							<div class="form-group">

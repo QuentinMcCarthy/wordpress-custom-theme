@@ -1,17 +1,19 @@
 <?php
 	$staff_field_role = array(
-		'title'   => 'Staff Members Role',
-		'type'    => 'text',
+		'title'       => 'Staff Members Role',
+		'type'        => 'text',
+		'description' => 'Role of the staff member',
 	);
 
 	$staff_field_year_started = array(
-		'title'   => 'Year Staff Member Started',
-		'type'    => 'number',
+		'title'       => 'Year Staff Member Started',
+		'type'        => 'number',
+		'description' => 'Year the Staff Member started',
 	);
 
 	$staff_fields = array(
-		$staff_field_role,
-		$staff_field_year_started,
+		'staff_role'   => $staff_field_role,
+		'year_started' => $staff_field_year_started,
 	);
 
 	$staff = array(
@@ -22,8 +24,41 @@
 		'fields'          => $staff_fields,
 	);
 
+	$enquiries_field_email = array(
+		'title'       => 'Email Address',
+		'type'        => 'email',
+		'description' => 'The persons email address',
+	);
+
+	$enquiries_field_course_interest_options = array(
+		'Course1',
+		'Course2',
+		'Course3',
+	);
+
+	$enquiries_field_course_interest = array(
+		'title'       => 'Course Interested In',
+		'type'        => 'select',
+		'description' => 'Course Interested in',
+		'options'     => $enquiries_field_course_interest_options,
+	);
+
+	$enquiries_fields = array(
+		'email'           => $enquiries_field_email,
+		'course_interest' => $enquiries_field_course_interest,
+	);
+
+	$enquiries = array(
+		'title'        => 'Enquiries',
+		'applicableto' => 'enquiries',
+		'location'     => 'normal',
+		'priority'     => 'high',
+		'fields'       => $enquiries_fields,
+	);
+
 	$metaboxes = array(
-		'staff' => $staff
+		'staff'     => $staff,
+		'enquiries' => $enquiries,
 	);
 
 	function add_custom_fields() {
@@ -62,8 +97,20 @@
 
 						break;
 					case 'select':
-						$output .= '<label class="custom-label">'.$field['title'].'</label>';
-						$output .= '<select></select>';
+						$output .= '<label class="custom-label">'.$field['title'].'</label><br>';
+						$output .= '<select name="'.$id.'"><option>Choose an Option</option>';
+
+						$options = $field['options'];
+						foreach ( $options as $option ) {
+							$output .= '<option value="'.$option.'">'.$option.'</option>';
+						}
+
+						$output .= '</select>';
+
+						break;
+					case 'email':
+						$output .= '<label class="custom-label">'.$field['title'].'</label><br>';
+						$output .= '<input type="email" name="'.$id.'" class="custom-field" value="'.$custom_values[$id][0].'">';
 
 						break;
 					default:
