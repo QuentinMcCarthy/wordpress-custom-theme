@@ -37,7 +37,7 @@
 		// Scripts
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bootstrapjs', $js_directory.'bootstrap.min.js', array(), '4.1.3', true );
-		wp_enqueue_script( 'theme-scripts', $js_directory.'theme-scripts.js', array(), '0.0.1', true );
+		wp_enqueue_script( 'theme-scripts', $js_directory.'theme-scripts.js', array(), '0.0.2', true );
 
 		global $wp_query;
 
