@@ -36,13 +36,33 @@
 
 		<div class="row">
 			<div class="col">
-				<?php if ( have_posts() ): ?>
-					<?php get_template_part( 'carousel', 'Carousel' ); ?>
+				<div class="row">
+					<div class="col front-page-posts">
+						<?php if ( have_posts() ): ?>
+							<?php get_template_part( 'carousel', 'Carousel' ); ?>
 
-					<?php while ( have_posts() ): the_post(); ?>
-						<?php get_template_part( 'content', get_post_format() ); ?>
-					<?php endwhile; ?>
-				<?php endif; ?>
+							<?php while ( have_posts() ): the_post(); ?>
+								<?php get_template_part( 'content', get_post_format() ); ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<?php
+							$total = wp_count_posts()->publish;
+							$can_show = get_option('posts_per_page');
+						?>
+
+						<?php if ( $total > $can_show): ?>
+							<div class="col-12 mb-4">
+								<hr>
+								<button type="button" name="button" class="btn btn-primary btn-block show-more">Show More</button>
+							</div>
+						<?php endif; ?>
+					</div>
+				</div>
 			</div>
 
 			<?php if ( is_active_sidebar('sidebar-main') ): ?>
