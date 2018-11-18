@@ -16,10 +16,12 @@
 
 						<?php if ( $featured_post->have_posts() ): ?>
 							<?php while ( $featured_post->have_posts() ): $featured_post->the_post(); ?>
-								<div class="card col-6 text-dark">
-									<h3><?php the_title(); ?></h3>
-									<p><?php the_content(); ?></p>
-									<button type="button" name="button">Go To Post</button>
+								<div class="card text-light bg-secondary col-6">
+									<div class="card-header"><?php the_title(); ?></div>
+									<div class="card-body row">
+										<p><?php the_content(); ?></p>
+										<a class="btn btn-primary btn-block" href="<?php echo esc_url(get_permalink()); ?>">Go To Post</a>
+									</div>
 								</div>
 							<?php endwhile; ?>
 						<?php endif; ?>
