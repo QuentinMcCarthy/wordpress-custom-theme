@@ -15,9 +15,10 @@
 				<div class="row">
 					<?php
 						$args = array(
-							'post_type' => 'staff',
-							'order'     => 'ASC',
-							'orderby'   => 'title',
+							'post_type'      => 'staff',
+							'order'          => 'ASC',
+							'orderby'        => 'title',
+							'posts_per_page' => -1,
 						);
 
 						$all_staff_members = new WP_Query($args);

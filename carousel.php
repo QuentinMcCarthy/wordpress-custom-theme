@@ -4,9 +4,10 @@
 
 <?php
 	$args = array(
-		'post_type' => 'carousel',
-		'order'     => 'ASC',
-		'orderby'   => 'date',
+		'post_type'      => 'carousel',
+		'order'          => 'ASC',
+		'orderby'        => 'date',
+		'posts_per_page' => -1,
 	);
 
 	$all_carousel_images = new WP_Query($args);
