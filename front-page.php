@@ -60,6 +60,24 @@
 						<?php if ( $total > $can_show): ?>
 							<div class="col-12 mb-4">
 								<hr>
+								<?php
+									$paginate_args = array(
+										'prev_text' => __( 'Previous' ),
+										'next_text' => __( 'Next' ),
+										'type'      => 'array',
+									);
+
+									$all_pages = paginate_links( $paginate_args );
+								?>
+								<nav>
+									<ul class="pagination">
+										<?php foreach ( $all_pages as $page ): ?>
+											<li class="page-item">
+												<?php echo str_replace( 'page-numbers', 'page-link', $page ); ?>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</nav>
 								<button type="button" name="button" class="btn btn-primary btn-block show-more">Show More</button>
 							</div>
 						<?php endif; ?>
