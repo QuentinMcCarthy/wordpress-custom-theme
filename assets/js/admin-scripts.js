@@ -6,6 +6,8 @@ $ = jQuery;
 $(document).ready(function(){
 	// alert('JS: Ready');
 
+	var formats = metaboxes.formats
+
 	display_metaboxes();
 
 	$("input[name='post_format']").change(function(){
@@ -13,13 +15,13 @@ $(document).ready(function(){
 	});
 
 	function display_metaboxes(){
-		var selected_format = $("input[name='post_format']:checked").attr("id");
+		let selected_format = $("input[name='post_format']:checked").attr("id");
 
-		for ( var value in metaboxes.formats ) {
+		for ( var value in formats ) {
 			if ( value != selected_format ) {
-				$("#"+metaboxes.formats[value]).hide();
+				$("#"+formats[value]).hide();
 			} else {
-				$("#"+metaboxes.formats[value]).show();
+				$("#"+formats[value]).show();
 			}
 		}
 	}
