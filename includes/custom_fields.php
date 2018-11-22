@@ -56,9 +56,49 @@
 		'fields'       => $enquiries_fields,
 	);
 
+	$video_field_url = array(
+		'title'       => 'Video URL',
+		'type'        => 'text',
+		'description' => 'Please enter a url to the video',
+	);
+
+	$video_fields = array(
+		'video_url'   => $video_field_url,
+	);
+
+	$video = array(
+		'title'            => 'Video Information',
+		'applicableto'     => 'post',
+		'location'         => 'normal',
+		'priority'         => 'high',
+		'format_condition' => 'post-format-video',
+		'fields'           => $video_fields,
+	);
+
+	$audio_field_url = array(
+		'title'       => 'Audio URL',
+		'type'        => 'text',
+		'description' => 'Please enter a url to the audio',
+	);
+
+	$audio_fields = array(
+		'audio_url'   => $audio_field_url,
+	);
+
+	$audio = array(
+		'title'            => 'Audio Information',
+		'applicableto'     => 'post',
+		'location'         => 'normal',
+		'priority'         => 'high',
+		'format_condition' => 'post-format-audio',
+		'fields'           => $audio_fields,
+	);
+
 	$metaboxes = array(
 		'staff'     => $staff,
 		'enquiries' => $enquiries,
+		'video'     => $video,
+		'audio'     => $audio,
 	);
 
 	function add_custom_fields() {
@@ -88,6 +128,7 @@
 				switch ( $field['type'] ) {
 					case 'text':
 						$output .= '<label for="'.$id.'" class="custom-label">'.$field['title'].'</label>';
+						$output .= '<p>'.$field['description'].'</p>';
 						$output .= '<input type="text" name="'.$id.'" class="custom-field" value="'.$custom_values[$id][0].'">';
 
 						break;

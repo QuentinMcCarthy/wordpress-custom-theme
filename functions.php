@@ -61,6 +61,23 @@
 
 		// Scripts
 		wp_enqueue_script( 'admin-scripts', $js_directory.'admin-scripts.js', array(), '0.0.1', true );
+
+		// Script localization
+		global $metaboxes;
+
+		$formats = array();
+
+		foreach ( $metaboxes as $id => $metabox ) {
+			if ( $metabox['format_condition'] ) {
+				$formats[$metabox['format_condition']] = $id;
+			}
+		}
+
+		$admin_script_localize_data = array(
+			'formats' => $formats,
+		);
+
+		wp_localize_script( 'admin-scripts', 'metaboxes', $admin_script_localize_data );
 	});
 
 
