@@ -232,6 +232,8 @@
 			'gallery',
 			'image',
 			'video',
+			'link',
+			'audio',
 		);
 
 		add_theme_support( 'post-formats', $post_formats );
