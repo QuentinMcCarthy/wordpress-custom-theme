@@ -17,11 +17,11 @@ $(document).ready(function(){
 	function display_metaboxes(){
 		let selected_format = $("input[name='post_format']:checked").attr("id");
 
-		for ( var value in formats ) {
-			if ( value != selected_format ) {
-				$("#"+formats[value]).hide();
+		for ( var id in formats ) {
+			if ( id != selected_format ) {
+				$("#"+formats[id]).hide();
 			} else {
-				$("#"+formats[value]).show();
+				$("#"+formats[id]).show();
 			}
 		}
 	}
