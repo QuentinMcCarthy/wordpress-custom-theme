@@ -1,6 +1,8 @@
 // Init jQuery
 $ = jQuery;
 
+// metaboxes var called from functions.php via localization
+
 $(document).ready(function(){
 	// alert('JS: Ready');
 
