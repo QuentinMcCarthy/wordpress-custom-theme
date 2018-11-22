@@ -1,0 +1,2 @@
+// Init jQuery
+$ = jQuery;

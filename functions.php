@@ -52,7 +52,14 @@
 	});
 
 	add_action( 'admin_enqueue_scripts', function(){
-		wp_enqueue_style( 'admin-style', get_template_directory_uri().'/assets/css/admin.css', array(), '0.0.1', 'all' );
+		$css_directory = get_template_directory_uri().'/assets/css/';
+		$js_directory = get_template_directory_uri().'/assets/js/';
+
+		// Stylesheets
+		wp_enqueue_style( 'admin-style', $css_directory.'admin.css', array(), '0.0.1', 'all' );
+
+		// Scripts
+		wp_enqueue_script( 'admin-scripts', $js_directory.'admin-scripts.js', array(), '0.0.1', true );
 	});
 
 
