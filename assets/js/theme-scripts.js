@@ -8,13 +8,13 @@ $(document).ready(function(){
 		let button = $(this);
 		let data = {
 			'action': 'loadmore',
-			'query': localize_data.query,
-			'page': localize_data.current_page,
+			'query': front_page_show_more.query,
+			'page': front_page_show_more.current_page,
 		};
 
 		$.ajax({
 			type: "POST",
-			url: localize_data.ajax_url,
+			url: front_page_show_more.ajax_url,
 			data: data,
 			beforeSend: function(xhr){
 				button.text('Loading...');
@@ -25,9 +25,9 @@ $(document).ready(function(){
 
 					$('.front-page-posts').append(data);
 
-					localize_data.current_page++;
+					front_page_show_more.current_page++;
 
-					if(localize_data.current_page == localize_data.max_page){
+					if(front_page_show_more.current_page == front_page_show_more.max_page){
 						button.remove();
 					}
 				} else{
